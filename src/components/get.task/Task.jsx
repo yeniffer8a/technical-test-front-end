@@ -4,13 +4,13 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
 
-const API_URL = process.env.API_URL;
+//const API_URL = process.env.API_URL;
 const Task = () => {
   const [tasks, setTasks] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`${API_URL}/tasks`);
+        const response = await axios.get("http://localhost:8000/api/tasks");
         setTasks(response.data);
       } catch (error) {
         console.log("Error while fetching data", error);
@@ -21,7 +21,7 @@ const Task = () => {
 
   const deleteTask = async (taskId) => {
     await axios
-      .delete(`${API_URL}/tasks/${taskId}`)
+      .delete(`http://localhost:8000/api/tasks/${taskId}`)
       .then((response) => {
         setTasks((prevTask) => prevTask.filter((task) => task._id !== taskId));
         toast.success(response.data.message, { position: "top-right" });
