@@ -68,7 +68,7 @@ const UpdateTask = () => {
           />
         </div>
         <div className="inputGroup">
-          <label htmlFor="description">E-mail:</label>
+          <label htmlFor="description">Description:</label>
           <input
             type="description"
             id="description"
