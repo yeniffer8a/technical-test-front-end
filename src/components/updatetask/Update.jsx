@@ -37,7 +37,7 @@ const UpdateTask = () => {
   const submitForm = async (e) => {
     e.preventDefault();
     await axios
-      .put(`http://localhost:8000/api/tasks/${id}`, task)
+      .patch(`http://localhost:8000/api/tasks/${id}`, task)
       .then((response) => {
         toast.success(response.data.message, { position: "top-right" });
         navigate("/");
@@ -70,7 +70,7 @@ const UpdateTask = () => {
         <div className="inputGroup">
           <label htmlFor="description">Description:</label>
           <input
-            type="description"
+            type="text"
             id="description"
             value={task.description}
             onChange={inputHandler}

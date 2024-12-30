@@ -1,4 +1,5 @@
 import "./App.css";
+import "@fortawesome/fontawesome-free/css/all.min.css";
 import AddTask from "./components/addtask/AddTask";
 import Task from "./components/get.task/Task";
 import UpdateTask from "./components/updatetask/Update";
