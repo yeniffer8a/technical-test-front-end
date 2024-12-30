@@ -4,6 +4,8 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
 
+const API_URL = process.env.API_URL;
+
 const AddTask = () => {
   const tasks = {
     title: "",
@@ -23,7 +25,7 @@ const AddTask = () => {
   const submitForm = async (e) => {
     e.preventDefault();
     await axios
-      .post("http://localhost:8000/api/tasks", task)
+      .post(`${API_URL}/tasks`, task)
       .then((response) => {
         toast.success(response.data.message, { position: "top-right" });
         navigate("/");
